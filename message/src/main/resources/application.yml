@@ -1,0 +1,21 @@
+server:
+  port: 9000
+spring:
+  rabbitmq:
+    addresses: 47.98.131.252
+    host: 47.98.131.252
+    port: 5672
+    username: limingyang
+    password: asd.1234
+    virtual-host: /
+    listener:
+      direct:
+        acknowledge-mode: manual #手动签收
+      template:
+        receive-timeout: 30000
+        reply-timeout: 30000
+  datasource:
+    url: jdbc:mysql://172.20.4.187.3307/my_test?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
