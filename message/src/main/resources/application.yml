@@ -14,6 +14,8 @@ spring:
       template:
         receive-timeout: 30000
         reply-timeout: 30000
+    publisher-confirm-type: simple
+    publisher-returns: true
   datasource:
     url: jdbc:mysql://172.20.4.187.3307/my_test?useUnicode=true&characterEncoding=utf8
     username: root

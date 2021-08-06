@@ -1,10 +1,13 @@
 package com.lmy.receive.consume;
 
+import com.lmy.receive.utils.OrderMap;
 import com.rabbitmq.client.Channel;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 
 /**
  * @author lmy
@@ -19,5 +22,10 @@ public class SMSConsume {
             key = "sms"))
     public void smsConsume(String msg, Message message, Channel channel) {
         System.out.println(msg);
+        try {
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), true);
+        }catch (IOException e) {
+
+        }
     }
 }
